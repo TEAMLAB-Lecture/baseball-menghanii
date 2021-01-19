@@ -188,14 +188,23 @@ def get_strikes_or_ball(user_input_number, random_number):
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
     result = [0, 0]
+    visited = []
     for i, j in zip(list(user_input_number), list(random_number)):
         if i == j:
             result[0] += 1
         else:
             if i in list(random_number):
-                result[1] += 1
+                if i not in visited:
+                    result[1] += 1
+                    visited.append(i)
+                else:
+                    pass
             elif j in list(user_input_number):
-                result[1] += 1
+                if j not in visited:
+                    result[1] += 1
+                    visited.append(j)
+                else:
+                    pass
     # ==================================
     return result
 
