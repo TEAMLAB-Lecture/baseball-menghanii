@@ -280,52 +280,51 @@ def is_no(one_more_input):
 
 def main():
     print("Play Baseball")
-    random_number = str(get_not_duplicated_three_digit_number())
-    print("Random Number is : ", random_number)
-    success = 0
-    more_game = 0
-    while True:
-        user_input = input('Input guess number : ')
-        if user_input == '0':
-            break
-        elif is_digit(user_input) == False:
-            print('Wrong input, Input again')
-            continue
-        elif is_duplicated_number(user_input) == True:
-            print('Wrong input, Input again')
-            continue
-        elif is_validated_number(user_input) == False:
-            print('Wrong input, Input again')
-            continue
-
-        strike, ball = get_strikes_or_ball(user_input, random_number)
-        if strike == 3 and ball == 0:
-            print(f'Strikes: {strike}, Balls: {ball}')
-            success = 1
-            break
-        else:
-            print(f'Strikes: {strike}, Balls: {ball}')
-            
-    if success == 1:
+    more_game = 1
+    while more_game == 1:
+        random_number = str(get_not_duplicated_three_digit_number())
+        print("Random Number is : ", random_number)
+        success = 0
         while True:
-            one_more = input('You win, one more(Y/N) ?')
-            if is_yes(one_more):
-                # Y, Yes를 입력한 경우
-                more_game = 1
+            user_input = input('Input guess number : ')
+            if user_input == '0':
+                more_game = 0
+                break
+            elif is_digit(user_input) == False:
+                print('Wrong input, Input again')
+                continue
+            elif is_duplicated_number(user_input) == True:
+                print('Wrong input, Input again')
+                continue
+            elif is_validated_number(user_input) == False:
+                print('Wrong input, Input again')
+                continue
+
+            strike, ball = get_strikes_or_ball(user_input, random_number)
+            if strike == 3 and ball == 0:
+                print(f'Strikes: {strike}, Balls: {ball}')
+                success = 1
                 break
             else:
-                # n, no를 입력한 경우
-                if is_no(one_more):
-                    print("Thank you for using this program")
-                    print("End of the Game")
-                    return
-                # 아예 이상한걸 입력한 경우
+                print(f'Strikes: {strike}, Balls: {ball}')
+                
+        if success == 1:
+            while True:
+                one_more = input('You win, one more(Y/N) ?')
+                if is_yes(one_more):
+                    # Y, Yes를 입력한 경우
+                    break
                 else:
-                    print('Wrong Input, Input again')
-                    continue
-    
-    if more_game == 1:
-        return main()
+                    # n, no를 입력한 경우
+                    if is_no(one_more):
+                        more_game = 0
+                        break
+                        # return
+                    # 아예 이상한걸 입력한 경우
+                    else:
+                        print('Wrong Input, Input again')
+                        continue
+
     else:
         print("Thank you for using this program")
         print("End of the Game")
