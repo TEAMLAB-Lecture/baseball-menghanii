@@ -288,6 +288,9 @@ def main():
         user_input = input('Input guess number : ')
         if user_input == '0':
             break
+        elif is_digit(user_input) == False:
+            print('Wrong input, Input again')
+            continue
         elif is_duplicated_number(user_input) == True:
             print('Wrong input, Input again')
             continue
