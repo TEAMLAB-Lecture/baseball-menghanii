@@ -288,9 +288,13 @@ def main():
         user_input = input('Input guess number : ')
         if user_input == '0':
             break
+        elif is_duplicated_number(user_input) == False:
+            print('Wrong input, Input again')
+            continue
         elif is_validated_number(user_input) == False:
             print('Wrong input, Input again')
             continue
+
         strike, ball = get_strikes_or_ball(user_input, random_number)
         if strike == 3 and ball == 0:
             print(f'Strikes: {strike}, Balls: {ball}')
