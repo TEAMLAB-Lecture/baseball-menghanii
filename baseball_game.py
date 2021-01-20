@@ -293,6 +293,7 @@ def main():
             continue
         strike, ball = get_strikes_or_ball(user_input, random_number)
         if strike == 3 and ball == 0:
+            print(f'Strikes: {strike}, Balls: {ball}')
             success = 1
             break
         else:
