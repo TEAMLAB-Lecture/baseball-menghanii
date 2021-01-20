@@ -281,19 +281,19 @@ def is_no(one_more_input):
 def main():
     print("Play Baseball")
     user_input = 999
-    random_number = str(get_not_duplicated_three_digit_number())
+    random_number = str(247)#get_not_duplicated_three_digit_number())
     print("Random Number is : ", random_number)
     # ===Modify codes below=============
-    # 위의 코드를 포함하여 자유로운 수정이 가능함
-    # while True:
-    #     user_number = str(input('중복되지 않는 세 자리 숫자를 입력하세요: '))
-    #     if is_validated_number(user_number):
-    #         strike, ball = get_strikes_or_ball(user_number, random_number)
-    #         print(f'{strike:^5d} 스트라이크 {ball:^5d} 볼입니다!')
-    #         break
-    #     else:
-    #         print('잘못된 숫자/문자를 입력하셨네요!')
-    #         continue
+    #위의 코드를 포함하여 자유로운 수정이 가능함
+    while True:
+        user_number = input('중복되지 않는 세 자리 숫자를 입력하세요: ')
+        if is_validated_number(user_number):
+            strike, ball = get_strikes_or_ball(user_number, random_number)
+            print(f'{strike:^5d} 스트라이크 {ball:^5d} 볼입니다!')
+            break
+        else:
+            print('잘못된 숫자/문자를 입력하셨네요!')
+            continue
     # ==================================
     print("Thank you for using this program")
     print("End of the Game")
